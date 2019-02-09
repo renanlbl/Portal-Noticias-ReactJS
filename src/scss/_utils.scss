@@ -1,0 +1,16 @@
+.container {
+    width: 100%;
+    padding: 0 10px;
+    max-width: 962px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.flexHorizontalVertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

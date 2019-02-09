@@ -18,6 +18,10 @@ module.exports = {
             DEBUG: true
         })
     ],
+
+    devServer: {
+        historyApiFallback: true,
+     },
   
     module: {
         rules: [{
