@@ -1,0 +1,18 @@
+.nav__desktop {
+    height: 40px;
+    background: #fff;
+    width: 100%;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+        height: 40px;
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+}

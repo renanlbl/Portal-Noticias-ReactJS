@@ -1,7 +1,8 @@
 import React from 'react'
-import Teste from './teste'
-import Testando from './testando'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
+import { BrowserRouter as Router } from 'react-router-dom'
+import Nav from './nav'
+import Routes from './routes'
 
 const AppContent = () => (
     <div>        
@@ -12,15 +13,13 @@ const AppContent = () => (
                     <input className="header__search" type="search" />
                 </div>
             </div>
-        </header>
-        <Router>       
+        </header>        
+        <Router> 
             <div>
-                <Link to="/teste">Teste</Link>            
-                <Link to="/testando">Testando</Link>            
-                <Route path="/teste" component={Teste} />
-                <Route path="/testando" component={Testando} />
-            </div> 
-        </Router>
+                <Nav />           
+                <Routes />
+            </div>
+        </Router>  
     </div>
 )
 
