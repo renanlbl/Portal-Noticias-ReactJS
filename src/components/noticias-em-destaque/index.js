@@ -1,9 +1,10 @@
 import React from 'react'
+import NoticiasCard from './noticias-card'
 
 
-const NoticiasEmDestaque = () => (
-    <div>
-        <h2>Notícias em destaque</h2>
+const NoticiasEmDestaque = ( { noticiasEmDestaque } ) => (
+    <div className="container">
+        <NoticiasCard noticiasEmDestaque={noticiasEmDestaque} />
     </div>
 )
 

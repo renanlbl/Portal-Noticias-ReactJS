@@ -1,25 +1,20 @@
 import React from 'react'
-
 import { BrowserRouter as Router } from 'react-router-dom'
+import Header from './header'
 import Nav from './nav'
 import Routes from './routes'
 
-const AppContent = () => (
+const AppContent = ({ noticiasEmDestaque }) => (
     <div>        
-        <header className="header__desktop">
-            <div className="container">
-                <div className="header__desktop--wrapper flexHorizontalVertical">                                        
-                    <a href="https://google.com.br" target="_blank" className="header__logo"></a>
-                    <input className="header__search" type="search" />
-                </div>
-            </div>
-        </header>        
+        <Header />
         <Router> 
             <div>
                 <Nav />           
-                <Routes />
+                <Routes 
+                    noticiasEmDestaque={noticiasEmDestaque} 
+                />
             </div>
-        </Router>  
+        </Router>          
     </div>
 )
 
