@@ -4,14 +4,16 @@ import Header from './header'
 import Nav from './nav'
 import Routes from './routes'
 
-const AppContent = ({ noticiasEmDestaque }) => (
+const AppContent = ({ noticiasEmDestaque, pagination }) => (    
     <div>        
         <Header />
+        {console.log(noticiasEmDestaque)}
         <Router> 
             <div>
                 <Nav />           
                 <Routes 
                     noticiasEmDestaque={noticiasEmDestaque} 
+                    pagination={pagination}
                 />
             </div>
         </Router>          
