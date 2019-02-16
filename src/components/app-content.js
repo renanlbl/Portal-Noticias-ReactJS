@@ -6,8 +6,7 @@ import Routes from './routes'
 
 const AppContent = ({ noticiasEmDestaque, pagination }) => (    
     <div>        
-        <Header />
-        {console.log(noticiasEmDestaque)}
+        <Header />      
         <Router> 
             <div>
                 <Nav />           

@@ -35,7 +35,7 @@ class App extends Component {
             })
         this.setState({
             pagination: {
-                activePage: lastPage,
+                activePage: !lastPage ? 1 : lastPage,
                 total: 5
             }
         })
@@ -45,7 +45,6 @@ class App extends Component {
             
         let page = window.location.href.split('/')
         let lastPage = +page[page.length - 1]
-
         if (isNaN(lastPage)) {
             lastPage = 1
         }        

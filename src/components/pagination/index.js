@@ -13,7 +13,10 @@ const Pagination = ({ total, activePage, pageLink, onClick }) => (
 )
 
 Pagination.defaultProps = {
-    pageLink: ''
+    pageLink: '',
+    activePage: 1
 }
+
+
 
 export default Pagination
