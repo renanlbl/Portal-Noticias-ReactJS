@@ -2,12 +2,8 @@ import React from 'react'
 
 const Dots = () => <span>...</span>
 
-const Page = ({ page, pageLink, onClick }) => {
-    const Component = page === '...' ? Dots : 'a'   
-    const handleClick = !onClick ? null : (e) => {
-        e.preventDefault()
-        onClick(page)
-    }
+const Page = ({ page, pageLink, handleClick }) => {
+    const Component = page === '...' ? Dots : 'a'  
     return (
         <Component href={pageLink} onClick={handleClick}>
             {page}

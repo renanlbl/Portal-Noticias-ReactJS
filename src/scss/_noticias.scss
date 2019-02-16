@@ -6,6 +6,7 @@
 
 .noticias__wrapper
 {
+    display: block;
     width: 100%;
     max-width: 465px;
     height: 300px;
@@ -21,10 +22,9 @@
     }
 }
 
-.noticias__wrapper--three,
-.noticias__wrapper--three,
-.noticias__wrapper-three
+.noticias__wrapper--three
 {
+    display: block;
     width: 100%;
     max-width: 300px;
     height: 300px;

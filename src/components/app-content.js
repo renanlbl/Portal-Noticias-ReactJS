@@ -4,15 +4,17 @@ import Header from './header'
 import Nav from './nav'
 import Routes from './routes'
 
-const AppContent = ({ noticiasEmDestaque, pagination }) => (    
+const AppContent = ({ noticiasEmDestaque, noticiasDoBrasil, pagination, getNewsAll, getNewsBrasil, handleRequestBrasil }) => (    
     <div>        
         <Header />      
         <Router> 
             <div>
-                <Nav />           
+                <Nav getNewsBrasil={getNewsBrasil} getNewsAll={getNewsAll}  />           
                 <Routes 
                     noticiasEmDestaque={noticiasEmDestaque} 
-                    pagination={pagination}
+                    noticiasDoBrasil={noticiasDoBrasil}
+                    pagination={pagination}                    
+                    handleRequestBrasil={handleRequestBrasil}                    
                 />
             </div>
         </Router>          
