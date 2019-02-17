@@ -5,12 +5,33 @@ import Nav from './nav'
 import Routes from './routes'
 import Footer from './footer'
 
-const AppContent = ({ noticiasEmDestaque, noticiasDoBrasil, noticiasDoEua, noticiasDaArgentina, noticiasDaFranca, pagination, refreshAll, refreshBr, refreshEua, refreshAr, refreshFr }) => (    
+const AppContent = ({ 
+    noticiasEmDestaque, 
+    noticiasDoBrasil, 
+    noticiasDoEua, 
+    noticiasDaArgentina, 
+    noticiasDaFranca, 
+    pagination, 
+    refreshAll, 
+    refreshBr, 
+    refreshEua, 
+    refreshAr, 
+    refreshFr,
+    openMenu,
+    handleOpenMenu,
+    handleCloseMenu }) => (    
     <div>        
-        <Header />      
+        <Header handleOpenMenu={handleOpenMenu} />      
         <Router> 
             <div>
-                <Nav refreshBr={refreshBr} refreshAll={refreshAll} refreshEua={refreshEua} refreshAr={refreshAr} refreshFr={refreshFr} />           
+                <Nav 
+                refreshBr={refreshBr} 
+                refreshAll={refreshAll} 
+                refreshEua={refreshEua} 
+                refreshAr={refreshAr} 
+                refreshFr={refreshFr} 
+                openMenu={openMenu} 
+                handleCloseMenu={handleCloseMenu}/>           
                 <Routes 
                     noticiasEmDestaque={noticiasEmDestaque} 
                     noticiasDoBrasil={noticiasDoBrasil}

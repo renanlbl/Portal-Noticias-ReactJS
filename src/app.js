@@ -25,7 +25,8 @@ class App extends Component {
             pagination: {
                 activePage: 1,
                 total: 5
-            }
+            },
+            openMenu: false
             
         }
     }
@@ -181,6 +182,18 @@ class App extends Component {
             }
         }) 
     }
+    
+    handleOpenMenu = () => {
+        this.setState({
+            openMenu: true
+        }) 
+    }
+
+    handleCloseMenu = () => {
+        this.setState({
+            openMenu: false
+        }) 
+    }
 
     render() {
         return (
@@ -191,12 +204,15 @@ class App extends Component {
                 noticiasDoEua={this.state.noticiasDoEua}
                 noticiasDaArgentina={this.state.noticiasDaArgentina}
                 noticiasDaFranca={this.state.noticiasDaFranca}
+                handleOpenMenu={this.handleOpenMenu}
+                handleCloseMenu={this.handleCloseMenu}
                 refreshAll={this.refreshPage}              
                 refreshBr={this.refreshPage}                                         
                 refreshEua={this.refreshPage}                                         
                 refreshAr={this.refreshPage}                                        
                 refreshFr={this.refreshPage}            
                 pagination={this.state.pagination}  
+                openMenu={this.state.openMenu}                
             />            
             </div>
         )

@@ -26,6 +26,8 @@ header.header__desktop {
     }
 }
 
+
+
 header.header__mobile {
     display: none;
 
@@ -35,6 +37,7 @@ header.header__mobile {
         position: relative;        
         justify-content: space-between;
         padding: 0 25px;
+        z-index: 10;
 
         i {
             cursor: pointer;
