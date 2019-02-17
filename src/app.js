@@ -13,6 +13,15 @@ class App extends Component {
             noticiasDoBrasil: {
                 request: []
             },
+            noticiasDoEua: {
+                request: []
+            },
+            noticiasDaArgentina: {
+                request: []
+            },
+            noticiasDaFranca: {
+                request: []
+            },
             pagination: {
                 activePage: 1,
                 total: 5
@@ -40,7 +49,77 @@ class App extends Component {
                     date: item.publishedAt,
                     author: item.author,
                     description: item.description,
-                    url: item.url
+                    url: item.url,
+                    img: item.urlToImage
+                })) } 
+            })                
+        })
+        this.setState({
+            pagination: {
+                activePage: !lastPage ? 1 : lastPage,
+                total: 5
+            }
+        })        
+    }
+
+    getNoticiasDoEua = (lastPage) => {
+        axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=06db68aceab74650ac3f9411c46e0796&pageSize=7&page=${lastPage}`)
+        .then((response) => {                            
+            this.setState({
+                noticiasDoEua: { 
+                    request: response.data.articles.map((item, index) => ({
+                    title: item.title,
+                    date: item.publishedAt,
+                    author: item.author,
+                    description: item.description,
+                    url: item.url,
+                    img: item.urlToImage
+                })) } 
+            })                
+        })
+        this.setState({
+            pagination: {
+                activePage: !lastPage ? 1 : lastPage,
+                total: 5
+            }
+        })        
+    }
+
+    getNoticiasDaArgentina = (lastPage) => { 
+        axios.get(`https://newsapi.org/v2/top-headlines?country=ar&apiKey=06db68aceab74650ac3f9411c46e0796&pageSize=7&page=${lastPage}`)
+        .then((response) => {                            
+            this.setState({
+                noticiasDaArgentina: { 
+                    request: response.data.articles.map((item, index) => ({
+                    title: item.title,
+                    date: item.publishedAt,
+                    author: item.author,
+                    description: item.description,
+                    url: item.url,
+                    img: item.urlToImage
+                })) } 
+            })                
+        })
+        this.setState({
+            pagination: {
+                activePage: !lastPage ? 1 : lastPage,
+                total: 5
+            }
+        })        
+    }
+    
+    getNoticiasDaFranca = (lastPage) => { 
+        axios.get(`https://newsapi.org/v2/top-headlines?country=fr&apiKey=06db68aceab74650ac3f9411c46e0796&pageSize=7&page=${lastPage}`)
+        .then((response) => {                            
+            this.setState({
+                noticiasDaFranca: { 
+                    request: response.data.articles.map((item, index) => ({
+                    title: item.title,
+                    date: item.publishedAt,
+                    author: item.author,
+                    description: item.description,
+                    url: item.url,
+                    img: item.urlToImage
                 })) } 
             })                
         })
@@ -56,7 +135,7 @@ class App extends Component {
     getNoticiasEmDestaque = (lastPage) => { 
         axios.get(`https://newsapi.org/v2/everything?q=all&apiKey=06db68aceab74650ac3f9411c46e0796&pageSize=7&page=${lastPage}`)  
             .then((response) => {
-                // console.log(response.data.articles)                
+                console.log(response.data.articles)                
                     this.setState({
                         noticiasEmDestaque: { 
                             request: response.data.articles.map((item, index) => ({
@@ -64,7 +143,8 @@ class App extends Component {
                             date: item.publishedAt,
                             author: item.author,
                             description: item.description,
-                            url: item.url
+                            url: item.url,
+                            img: item.urlToImage
                         })) } 
                     })                
             })        
@@ -76,19 +156,28 @@ class App extends Component {
         })        
     }
 
-    componentDidMount = () => {            
-        let page = window.location.href.split('/')
+    
+
+    componentDidMount = () => {                           
+        let page = window.location.href.split('/')        
         let lastPage = +page[page.length - 1]
         if (isNaN(lastPage)) {
             lastPage = 1
         }   
         this.getNoticiasEmDestaque(lastPage) 
         this.getNoticiasDoBrasil(lastPage)  
+        this.getNoticiasDoEua(lastPage)  
+        this.getNoticiasDaArgentina(lastPage)  
+        this.getNoticiasDaFranca(lastPage)  
     }
 
     refreshPage = () => { 
         this.getNoticiasEmDestaque(1) 
         this.getNoticiasDoBrasil(1)          
+        this.getNoticiasDoEua(1)    
+        this.getNoticiasDaArgentina(1)    
+        this.getNoticiasDaFranca(1)
+
         this.setState({
             pagination: {
                 activePage: 1,
@@ -105,9 +194,15 @@ class App extends Component {
             <AppContent 
                 noticiasEmDestaque={this.state.noticiasEmDestaque}  
                 noticiasDoBrasil={this.state.noticiasDoBrasil}
+                noticiasDoEua={this.state.noticiasDoEua}
+                noticiasDaArgentina={this.state.noticiasDaArgentina}
+                noticiasDaFranca={this.state.noticiasDaFranca}
                 pagination={this.state.pagination}  
-                getNewsAll={this.getNoticiasEmDestaque && this.refreshPage}              
-                getNewsBrasil={this.getNoticiasDoBrasil && this.refreshPage}                                         
+                refreshAll={this.refreshPage}              
+                refreshBr={this.refreshPage}                                         
+                refreshEua={this.refreshPage}                                         
+                refreshAr={this.refreshPage}                                        
+                refreshFr={this.refreshPage}            
             />            
             </div>
         )

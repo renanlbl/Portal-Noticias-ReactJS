@@ -9,7 +9,7 @@
     display: block;
     width: 100%;
     max-width: 465px;
-    height: 300px;
+    height: auto;
     background: #ddd;
     margin-top: 30px;
     border-radius: 10px;
@@ -20,6 +20,12 @@
     &:nth-of-type(2) {
         margin-left: 15px;
     }
+
+    img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
 }
 
 .noticias__wrapper--three
@@ -27,7 +33,7 @@
     display: block;
     width: 100%;
     max-width: 300px;
-    height: 300px;
+    height: auto;
     background: #ddd;
     margin-top: 30px;
     border-radius: 10px;
@@ -41,6 +47,12 @@
     }
     &:nth-of-type(2) {
         margin-left: 15px;        
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
     }
 
 }

@@ -4,17 +4,19 @@ import Header from './header'
 import Nav from './nav'
 import Routes from './routes'
 
-const AppContent = ({ noticiasEmDestaque, noticiasDoBrasil, pagination, getNewsAll, getNewsBrasil, handleRequestBrasil }) => (    
+const AppContent = ({ noticiasEmDestaque, noticiasDoBrasil, noticiasDoEua, noticiasDaArgentina, noticiasDaFranca, pagination, refreshAll, refreshBr, refreshEua, refreshAr, refreshFr }) => (    
     <div>        
         <Header />      
         <Router> 
             <div>
-                <Nav getNewsBrasil={getNewsBrasil} getNewsAll={getNewsAll}  />           
+                <Nav refreshBr={refreshBr} refreshAll={refreshAll} refreshEua={refreshEua} refreshAr={refreshAr} refreshFr={refreshFr} />           
                 <Routes 
                     noticiasEmDestaque={noticiasEmDestaque} 
                     noticiasDoBrasil={noticiasDoBrasil}
-                    pagination={pagination}                    
-                    handleRequestBrasil={handleRequestBrasil}                    
+                    noticiasDoEua={noticiasDoEua}
+                    noticiasDaArgentina={noticiasDaArgentina}
+                    noticiasDaFranca={noticiasDaFranca}
+                    pagination={pagination}
                 />
             </div>
         </Router>          

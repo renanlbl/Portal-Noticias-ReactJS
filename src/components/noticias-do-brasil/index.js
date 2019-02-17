@@ -11,15 +11,14 @@ const renderUrl = () => {
     return `${urlSplitada[0]}/page/%page%`       
 }
 
-const NoticiasDoBrasil = ( { noticiasDoBrasil, pagination, handleRequestBrasil } ) => (
+const NoticiasDoBrasil = ( { noticiasDoBrasil, pagination,  } ) => (
    
     <div className="container">         
         <NoticiasCard noticiasDoBrasil={noticiasDoBrasil} />        
         <Pagination 
             total={pagination.total} 
             activePage={pagination.activePage} 
-            pageLink={renderUrl()} 
-            handleClick={handleRequestBrasil}                      
+            pageLink={renderUrl()}                                 
         />
     </div>
 )
