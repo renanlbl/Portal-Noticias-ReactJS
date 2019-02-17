@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './header'
 import Nav from './nav'
 import Routes from './routes'
+import Footer from './footer'
 
 const AppContent = ({ noticiasEmDestaque, noticiasDoBrasil, noticiasDoEua, noticiasDaArgentina, noticiasDaFranca, pagination, refreshAll, refreshBr, refreshEua, refreshAr, refreshFr }) => (    
     <div>        
@@ -19,7 +20,8 @@ const AppContent = ({ noticiasEmDestaque, noticiasDoBrasil, noticiasDoEua, notic
                     pagination={pagination}
                 />
             </div>
-        </Router>          
+        </Router>    
+        <Footer />      
     </div>
 )
 

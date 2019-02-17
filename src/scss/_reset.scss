@@ -8,7 +8,16 @@ html,
 body 
 {
     height: 100%;
-    background: #f1eff1;
+    background: #f1eff2;
 }
 
 a {text-decoration: none;}
+
+
+@media screen and (max-width: 768px) {
+    html, 
+    body 
+    {
+        background: #f1eff1;
+    }
+}

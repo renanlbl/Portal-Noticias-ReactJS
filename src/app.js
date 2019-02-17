@@ -3,7 +3,7 @@ import AppContent from './components/app-content'
 import axios from 'axios'
 
 class App extends Component {
-
+    
     constructor() {
         super()
         this.state = {
@@ -30,12 +30,35 @@ class App extends Component {
         }
     }
     
-
+    getNoticiasEmDestaque = (lastPage) => { 
+        axios.get(`https://newsapi.org/v2/everything?q=all&apiKey=06db68aceab74650ac3f9411c46e0796&pageSize=7&page=${lastPage}`)  
+            .then((response) => {
+                console.log(response.data.articles)                
+                    this.setState({
+                        noticiasEmDestaque: { 
+                            request: response.data.articles.map((item, index) => ({
+                            title: item.title,
+                            date: item.publishedAt,
+                            author: item.author,
+                            description: item.description,
+                            url: item.url,
+                            img: item.urlToImage
+                        })) } 
+                    })                
+            })        
+        this.setState({
+            pagination: {
+                activePage: !lastPage ? 1 : lastPage,
+                total: 5
+            }
+        })        
+    }
+    
     getNoticiasDoBrasil = (lastPage) => {        
         // let page = window.location.href.split('/')
         // let ultimaPagina = +page[page.length - 1]               
         // if (isNaN(ultimaPagina)) {            
-        //     ultimaPagina = 1
+            //     ultimaPagina = 1
         // }  
         // console.log(ultimaPagina)
           
@@ -130,33 +153,6 @@ class App extends Component {
             }
         })        
     }
-    
-
-    getNoticiasEmDestaque = (lastPage) => { 
-        axios.get(`https://newsapi.org/v2/everything?q=all&apiKey=06db68aceab74650ac3f9411c46e0796&pageSize=7&page=${lastPage}`)  
-            .then((response) => {
-                console.log(response.data.articles)                
-                    this.setState({
-                        noticiasEmDestaque: { 
-                            request: response.data.articles.map((item, index) => ({
-                            title: item.title,
-                            date: item.publishedAt,
-                            author: item.author,
-                            description: item.description,
-                            url: item.url,
-                            img: item.urlToImage
-                        })) } 
-                    })                
-            })        
-        this.setState({
-            pagination: {
-                activePage: !lastPage ? 1 : lastPage,
-                total: 5
-            }
-        })        
-    }
-
-    
 
     componentDidMount = () => {                           
         let page = window.location.href.split('/')        
@@ -184,9 +180,7 @@ class App extends Component {
                 total: 5
             }
         }) 
-    }    
-
-    
+    }
 
     render() {
         return (
@@ -197,12 +191,12 @@ class App extends Component {
                 noticiasDoEua={this.state.noticiasDoEua}
                 noticiasDaArgentina={this.state.noticiasDaArgentina}
                 noticiasDaFranca={this.state.noticiasDaFranca}
-                pagination={this.state.pagination}  
                 refreshAll={this.refreshPage}              
                 refreshBr={this.refreshPage}                                         
                 refreshEua={this.refreshPage}                                         
                 refreshAr={this.refreshPage}                                        
                 refreshFr={this.refreshPage}            
+                pagination={this.state.pagination}  
             />            
             </div>
         )

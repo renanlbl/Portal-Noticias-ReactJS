@@ -26,6 +26,63 @@ header.header__desktop {
     }
 }
 
+header.header__mobile {
+    display: none;
 
+    .header__mobile--wrapper{
+        width: 100%;
+        height: 130px;
+        position: relative;        
+        justify-content: space-between;
+        padding: 0 25px;
+
+        i {
+            cursor: pointer;
+            font-size: 40px;
+        }
+    }
+
+    a.header__logo {
+        display: block;
+        width: 248px;
+        height: 46px;
+        background-image: url('../assets/logo.png');       
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    header.header__desktop {
+        display: none;
+    }
+
+    header.header__mobile {
+        display: block;
+    }
+
+}
+
+
+@media screen and (max-width: 500px) {
+    
+
+    header.header__mobile {
+        a.header__logo {            
+            width: 150px;            
+            background-image: url('../assets/logo.png');    
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;             
+        }
+
+        .header__mobile--wrapper{
+            i {
+                font-size: 25px;
+            }
+        }
+    }
+    
+    
+}
 
 
