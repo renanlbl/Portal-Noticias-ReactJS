@@ -26,7 +26,8 @@ class App extends Component {
                 activePage: 1,
                 total: 5
             },
-            openMenu: false
+            openMenu: false,
+            openSearch: false
             
         }
     }
@@ -155,7 +156,14 @@ class App extends Component {
         })        
     }
 
-    componentDidMount = () => {                           
+    componentDidMount = () => {  
+
+        window.onload = () => {
+            document.querySelector('#inputSearchDesktop').focus()
+           
+        }       
+        
+
         let page = window.location.href.split('/')        
         let lastPage = +page[page.length - 1]
         if (isNaN(lastPage)) {
@@ -195,6 +203,23 @@ class App extends Component {
         }) 
     }
 
+    handleOpenSearch = () => {
+        this.setState({
+            openSearch: true
+        }) 
+    }
+
+    handleCloseSearch = () => {
+        this.setState({
+            openSearch: false
+        }) 
+    }
+
+    handleRefreshAndClose = () => {
+        this.refreshPage()
+        this.handleCloseMenu()
+    }
+
     render() {
         return (
             <div>
@@ -206,13 +231,16 @@ class App extends Component {
                 noticiasDaFranca={this.state.noticiasDaFranca}
                 handleOpenMenu={this.handleOpenMenu}
                 handleCloseMenu={this.handleCloseMenu}
-                refreshAll={this.refreshPage}              
-                refreshBr={this.refreshPage}                                         
-                refreshEua={this.refreshPage}                                         
-                refreshAr={this.refreshPage}                                        
-                refreshFr={this.refreshPage}            
+                handleOpenSearch={this.handleOpenSearch}
+                handleCloseSearch={this.handleCloseSearch}
+                refreshAll={this.handleRefreshAndClose}              
+                refreshBr={this.handleRefreshAndClose}                                         
+                refreshEua={this.handleRefreshAndClose}                                         
+                refreshAr={this.handleRefreshAndClose}                                        
+                refreshFr={this.handleRefreshAndClose}            
                 pagination={this.state.pagination}  
-                openMenu={this.state.openMenu}                
+                openMenu={this.state.openMenu}   
+                openSearch={this.state.openSearch}             
             />            
             </div>
         )

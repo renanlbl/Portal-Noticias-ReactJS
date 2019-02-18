@@ -18,10 +18,13 @@ const AppContent = ({
     refreshAr, 
     refreshFr,
     openMenu,
+    openSearch,
     handleOpenMenu,
-    handleCloseMenu }) => (    
+    handleCloseMenu, 
+    handleOpenSearch,
+    handleCloseSearch }) => (    
     <div>        
-        <Header handleOpenMenu={handleOpenMenu} />      
+        <Header handleOpenMenu={handleOpenMenu} openSearch={openSearch} handleOpenSearch={handleOpenSearch} handleCloseSearch={handleCloseSearch} />      
         <Router> 
             <div>
                 <Nav 
@@ -30,7 +33,7 @@ const AppContent = ({
                 refreshEua={refreshEua} 
                 refreshAr={refreshAr} 
                 refreshFr={refreshFr} 
-                openMenu={openMenu} 
+                openMenu={openMenu}                 
                 handleCloseMenu={handleCloseMenu}/>           
                 <Routes 
                     noticiasEmDestaque={noticiasEmDestaque} 

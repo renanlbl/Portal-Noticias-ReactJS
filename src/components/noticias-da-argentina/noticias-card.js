@@ -13,33 +13,33 @@ const NoticiasCard = ({ noticiasDaArgentina }) => (
         <div className="noticias__wrapper--twoDivs">
             {noticiasDaArgentina.request.slice(0, 2).map((item, index) => (
                 <a href={item.url} className="noticias__wrapper" target="_blank">
-                    <img src={item.img ? item.img : '#'} />
+                    <img src={item.img ? item.img : 'https://i.imgur.com/i1emgCQ.jpg'} />
                     <span>{formatDate(item.date)}</span>
-                    <p>{item.title}</p>
+                    <h4>{item.title}</h4>
                     <p>{item.description}</p>
-                    <span>{item.author}</span>
+                    <span>{`Por: ${item.author ? item.author : 'Desconhecido'}`}</span>
                 </a>
             ))}                         
         </div>
         <div className="noticias__wrapper--threeDivs">            
             {noticiasDaArgentina.request.slice(2, 5).map((item, index) => (
                 <a href={item.url} className="noticias__wrapper--three" target="_blank">
-                    <img src={item.img ? item.img : '#'} />
+                     <img src={item.img ? item.img : 'https://i.imgur.com/i1emgCQ.jpg'} />
                     <span>{formatDate(item.date)}</span>
-                    <p>{item.title}</p>
+                    <h4>{item.title}</h4>
                     <p>{item.description}</p>
-                    <span>{item.author}</span>
+                    <span>{`Por: ${item.author ? item.author : 'Desconhecido'}`}</span>
                 </a> 
             ))}             
         </div>
         <div className="noticias__wrapper--twoDivs">
             {noticiasDaArgentina.request.slice(5, 7).map((item, index) => (
                 <a href={item.url} className="noticias__wrapper" target="_blank">
-                    <img src={item.img ? item.img : '#'} />
+                     <img src={item.img ? item.img : 'https://i.imgur.com/i1emgCQ.jpg'} />
                     <span>{formatDate(item.date)}</span>
-                    <p>{item.title}</p>
+                    <h4>{item.title}</h4>
                     <p>{item.description}</p>
-                    <span>{item.author}</span>
+                    <span>{`Por: ${item.author ? item.author : 'Desconhecido'}`}</span>
                 </a>
             ))}  
         </div>      

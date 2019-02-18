@@ -5,23 +5,35 @@ const url = () => {
     return `${url[0]}//${url[2]}`
 }
 
-const Header = ({ handleOpenMenu }) => (
+const Header = ({ handleOpenMenu, handleOpenSearch, handleCloseSearch, openSearch }) => (
     <React.Fragment>
     <header className="header__desktop">
             <div className="container">
                 <div className="header__desktop--wrapper flexHorizontalVertical">                                        
                     <a href={url()} className="header__logo"></a>
-                    <input className="header__search" type="search" />
+                    <div className="header__search--wrapper">
+                        <input id="inputSearchDesktop" className="header__search" type="search" />
+                        <i class="fas fa-search"></i>
+                    </div>
                 </div>               
             </div>
     </header> 
-    <header className="header__mobile">
-        <div className="header__mobile--wrapper flexHorizontalVertical">
+
+
+    <div className="header__mobile">
+        <div className={!openSearch ? 'header__mobile--wrapper flexHorizontalVertical' : "header__mobile--wrapperClosed"}>
             <i onClick={handleOpenMenu} class="fas fa-bars"></i>
             <a href={url()} className="header__logo"></a>
-            <i class="fas fa-search"></i>
+            <i onClick={handleOpenSearch} class="fas fa-search"></i>
         </div>
-    </header> 
+        <div className={openSearch ? 'header__mobile--wrapper--search' : "header__mobile--wrapper--searchClosed"}>
+            <div className="header__search--wrapper">
+                <input className="header__search" type="search" />
+                <i class="fas fa-search"></i>
+            </div>
+            <div onClick={handleCloseSearch} className="buttonCloseSearch"><i class="fas fa-times"></i></div>
+        </div>
+    </div> 
     </React.Fragment>
 )
 
