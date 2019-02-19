@@ -1,5 +1,5 @@
 # Desafio-webedia
-### Demo: https://desafiowebedia.netlify.com/noticias-em-destaque
+### Demo: https://desafiowebedia.netlify.com
 #### TO START:
 ```
 npm install
