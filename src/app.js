@@ -164,7 +164,8 @@ class App extends Component {
         }       
         
 
-        let page = window.location.href.split('/')        
+        let page = window.location.href.split('/')       
+
         let lastPage = +page[page.length - 1]
         if (isNaN(lastPage)) {
             lastPage = 1

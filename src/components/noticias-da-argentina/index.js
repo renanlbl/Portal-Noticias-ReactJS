@@ -4,9 +4,11 @@ import Pagination from '../pagination'
 
 const renderUrl = () => {
     let url = window.location.href
-    let urlSplitada = url.split('/page/')
-    return `${urlSplitada[0]}/page/%page%`       
+    let urlSplitada = url.split('/page/')  
+    return `${urlSplitada[0]}/page/%page%`   
 }
+
+{console.log(renderUrl())}
 
 const NoticiasDaArgentina = ( { noticiasDaArgentina, pagination,  } ) => (
    

@@ -2,7 +2,7 @@ import React from 'react'
 
 const url = () => {
     let url = window.location.href.split('/')    
-    return `${url[0]}//${url[2]}`
+    return `${url[0]}//${url[2]}`    
 }
 
 const Header = ({ handleOpenMenu, handleOpenSearch, handleCloseSearch, openSearch }) => (
