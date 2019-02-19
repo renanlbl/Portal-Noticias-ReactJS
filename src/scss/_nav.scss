@@ -13,6 +13,7 @@
         a {
             text-decoration: none;
             text-transform: uppercase;
+            color: #7ca3d2;
         }
     }
 }
@@ -54,10 +55,10 @@
     z-index: 10;
     width: 85%;
     background: #fff;
-    position: absolute;
-    left: 0;
+    position: absolute;    
     top: 0;
     height: 100vh;
+    animation: menuOpen 2s;
 
     ul {
         display: flex;
@@ -134,3 +135,7 @@
     }
 }
 
+@keyframes menuOpen {  
+    0% {left: -700px}    
+    100% {left: 0px;}
+}

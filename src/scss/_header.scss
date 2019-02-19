@@ -172,7 +172,22 @@ div.header__mobile {
                 font-size: 25px;
             }
         }
+
+        .header__mobile--wrapper--search {
+            .header__search--wrapper {
+                .header__search {
+                    border: none;
+                    width: 250px;
+                    height: 44px;
+                    border-radius: 10px;
+                    outline: none;
+                    padding-left: 34px;
+                }
+            }
+        }
     }
+
+   
     
     
 }
