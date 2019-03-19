@@ -1,5 +1,5 @@
 # Desafio-webedia
-### Demo: https://desafiowebedia.netlify.com
+### Demo: https://portalnoticiasrlbl.netlify.com
 #### TO START:
 ```
 npm install
@@ -25,3 +25,7 @@ npm start (irá rodar em http://localhost:3000)
  - FERRAMENTAS
     </br>
     -Gulp for SASS-SCSS
+
+##### API UTILIZADA:
+</br>
+-https://newsapi.org/
