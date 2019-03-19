@@ -27,5 +27,4 @@ npm start (irá rodar em http://localhost:3000)
     -Gulp for SASS-SCSS
 
 ##### API UTILIZADA:
-</br>
--https://newsapi.org/
+- https://newsapi.org/
