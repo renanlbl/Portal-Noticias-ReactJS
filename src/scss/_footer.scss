@@ -9,5 +9,8 @@ a.footer__logo {
     display: block;
     width: 248px;
     height: 46px;
-    background-image: url('../assets/logo.png');       
+    background-image: url('../assets/logo.png');    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;       
 }

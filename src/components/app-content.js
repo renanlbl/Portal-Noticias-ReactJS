@@ -22,7 +22,8 @@ const AppContent = ({
     handleOpenMenu,
     handleCloseMenu, 
     handleOpenSearch,
-    handleCloseSearch }) => (    
+    handleCloseSearch,
+    carregando }) => (    
     <div>        
         <Header handleOpenMenu={handleOpenMenu} openSearch={openSearch} handleOpenSearch={handleOpenSearch} handleCloseSearch={handleCloseSearch} />      
         <Router> 
@@ -35,7 +36,7 @@ const AppContent = ({
                 refreshFr={refreshFr} 
                 openMenu={openMenu}                 
                 handleCloseMenu={handleCloseMenu}/>           
-                <Routes 
+                <Routes                     
                     noticiasEmDestaque={noticiasEmDestaque} 
                     noticiasDoBrasil={noticiasDoBrasil}
                     noticiasDoEua={noticiasDoEua}
@@ -43,6 +44,7 @@ const AppContent = ({
                     noticiasDaFranca={noticiasDaFranca}
                     pagination={pagination}
                 />
+                {carregando && <div className="carregando">CARREGANDO...</div>}
             </div>
         </Router>    
         <Footer />      

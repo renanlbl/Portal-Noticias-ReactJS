@@ -27,12 +27,17 @@ class App extends Component {
                 total: 5
             },
             openMenu: false,
-            openSearch: false
+            openSearch: false,
+            carregando: false
             
         }
     }
     
+
+
+    
     getNoticiasEmDestaque = (lastPage) => { 
+        this.setState({carregando: true})
         axios.get(`https://newsapi.org/v2/everything?q=all&apiKey=06db68aceab74650ac3f9411c46e0796&pageSize=7&page=${lastPage}`)  
             .then((response) => {
                 console.log(response.data.articles)                
@@ -47,7 +52,10 @@ class App extends Component {
                             img: item.urlToImage
                         })) } 
                     })                
-            })        
+            })  
+            .then(() => {
+                this.setState({carregando: false})
+            })      
         this.setState({
             pagination: {
                 activePage: !lastPage ? 1 : lastPage,
@@ -241,7 +249,8 @@ class App extends Component {
                 refreshFr={this.handleRefreshAndClose}            
                 pagination={this.state.pagination}  
                 openMenu={this.state.openMenu}   
-                openSearch={this.state.openSearch}             
+                openSearch={this.state.openSearch}    
+                carregando={this.state.carregando}         
             />            
             </div>
         )
